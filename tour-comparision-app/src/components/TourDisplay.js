@@ -1,19 +1,20 @@
+//U46368100
 import { useState } from "react";
 
-export default function TourDisplay({ name, info, image, price }) { // function takes in info fed by parent
+export default function TourDisplay({ name, info, image, price }) { 
 
-    const [showDetails, setShowDetails] = useState(false) // initially hides details
-    const [showComponent, setShowComponent] = useState(true) // sets state to
+    const [showDetails, setShowDetails] = useState(false) 
+    const [showComponent, setShowComponent] = useState(true) 
 
-    function handleDetailsClick() {
-        setShowDetails(!showDetails) // Reversed current state of show details
+    function detailsButtonClick() {
+        setShowDetails(!showDetails) 
     }
 
-    function handleNotInterestedClick() {
-        setShowComponent(false) // on click sets showCompenent to false
+    function notInterestedButtonClick() {
+        setShowComponent(false) 
     }
 
-    if (!showComponent) { // does not display component if showComponent is set to false
+    if (!showComponent) { 
         return null
     }
 
@@ -26,11 +27,11 @@ export default function TourDisplay({ name, info, image, price }) { // function 
                 width="400"
             />
             <br />
-            <button onClick={handleDetailsClick}>{showDetails ? 'Show Less' : 'Read More'}</button>
+            <button onClick={detailsButtonClick}>{showDetails ? 'Show Less' : 'Read More'}</button>
             {" "}
-            <button onClick={handleNotInterestedClick}>Not Interested</button>
+            <button onClick={notInterestedButtonClick}>Not Interested</button>
             <br />
-            {showDetails && < b className="price"> Price: ${price}</b>} {/* Displays price and info only when showDetails is true */}
+            {showDetails && < b className="price"> Price: ${price}</b>} {/* if showDetails is true, display price*/}
             <br />
             {showDetails && < p className="info">{info}</p>}
         </div>
